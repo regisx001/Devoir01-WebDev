@@ -5,3 +5,58 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    height: 100%;
+}
+
+/* Header Started */
+
+header {
+    background-color: #93DBF3;
+    border: 5px solid;
+    padding: 20px;
+    margin: 5px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+
+header p {
+    color: red;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+/* Header Ended */
+
+
+
+/* Body Started*/
+.container {
+    width: 100%;
+    height: calc(100vh - 110px);
+    display: flex;
+    justify-content: center;
+}
+
+.left-s {
+    margin: 5px;
+    background-color: blue;
+    border: black solid 5px;
+    height: calc(100%-10px);
+    width: 60%;
+}
+
+.right-s {
+    margin: 5px;
+    border: black solid 5px;
+    background-color: aqua;
+    height: calc(100%-10px);
+    width: 40%;
+}
+
+/* Body Ended*/
