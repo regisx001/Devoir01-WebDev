@@ -45,7 +45,6 @@ header p {
 
 .left-s {
     margin: 5px;
-    background-color: blue;
     border: black solid 5px;
     height: calc(100%-10px);
     width: 60%;
@@ -54,9 +53,28 @@ header p {
 .right-s {
     margin: 5px;
     border: black solid 5px;
-    background-color: aqua;
     height: calc(100%-10px);
+    overflow-y: scroll;
     width: 40%;
+}
+
+table {
+    width: 100%;
+}
+
+table tr td {
+    padding: 10px;
+}
+
+table tr:nth-child(1) {
+    background-color: aqua;
+}
+
+
+input {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 10px;
 }
 
 /* Body Ended*/
