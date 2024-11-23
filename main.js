@@ -51,19 +51,23 @@ function mount() {
     for (var i = 0; i < verbs.length; i++) {
 
         td1 = document.createElement('td');
+        td1.setAttribute("width", "10%")
         var texteNode = document.createTextNode(verbs[i][0]);
         td1.appendChild(texteNode);
 
 
         td2 = document.createElement('td');
+        td2.setAttribute("width", "10%")
         var texteNode = document.createTextNode(verbs[i][1]);
         td2.appendChild(texteNode);
 
         td3 = document.createElement('td');
+        td3.setAttribute("width", "15%")
         var texteNode = document.createTextNode(verbs[i][2]);
         td3.appendChild(texteNode);
 
         td4 = document.createElement('td');
+        td4.setAttribute("width", "40%")
         var texteNode = document.createTextNode(verbs[i][3]);
         td4.appendChild(texteNode);
 
@@ -86,15 +90,20 @@ function mount() {
 
 
         td5 = document.createElement('td');
-        td5.appendChild(btnedit);
-        td5.appendChild(btnupdate);
-        td5.appendChild(btndelete);
+        td5.setAttribute("width", "25%")
+
+        if (i != 0) {
+            td5.appendChild(btnedit);
+            td5.appendChild(btnupdate);
+            td5.appendChild(btndelete);
+        }
 
         var row = table.insertRow(i);
         row.appendChild(td1);
         row.appendChild(td2);
         row.appendChild(td3);
         row.appendChild(td4);
+
         row.appendChild(td5)
     }
 

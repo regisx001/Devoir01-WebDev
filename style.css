@@ -46,29 +46,38 @@ header p {
 .left-s {
     margin: 5px;
     border: black solid 5px;
-    height: calc(100%-10px);
     width: 60%;
 }
 
 .right-s {
     margin: 5px;
     border: black solid 5px;
-    height: calc(100%-10px);
     overflow-y: scroll;
     width: 40%;
 }
 
 table {
+    display: block;
     width: 100%;
+    height: 100%;
+    overflow-y: scroll;
 }
 
 table tr td {
     padding: 10px;
 }
 
+
 table tr:nth-child(1) {
-    background-color: aqua;
+    background-color: aqua !important;
+    font-weight: bold;
 }
+
+
+table tr:nth-child(2n+1) {
+    background-color: darksalmon;
+}
+
 
 
 input {
