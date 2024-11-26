@@ -111,4 +111,19 @@ function mount() {
 
 
 
+var isReversed = false;
+function switchTab() {
+    if (!isReversed) {
+        var mainContainer = document.getElementById("main")
+        mainContainer.style.flexDirection = "row-reverse";
+        isReversed = true;
+    } else {
+        var mainContainer = document.getElementById("main")
+        mainContainer.style.flexDirection = "row";
+        isReversed = false;
+    }
+}
+
+
+
 document.onload = mount();
