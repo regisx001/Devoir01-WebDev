@@ -71,12 +71,12 @@ function mount() {
 
         var btnedit = document.createElement("input");
         btnedit.setAttribute("type", "button");
-        btnedit.setAttribute("onclick", "update(this)");
+        btnedit.setAttribute("onclick", `editVerb(${i})`);
         btnedit.value = "edit";
 
         var btnupdate = document.createElement("input");
         btnupdate.setAttribute("type", "button");
-        btnupdate.setAttribute("onclick", "update(this)");
+        btnupdate.setAttribute("onclick", "updateVerb(this)");
         btnupdate.value = "update";
 
 
@@ -146,13 +146,16 @@ function expand() {
 }
 
 
+function editVerb(id) {
+
+}
+
+function updateVerb(ele) { }
 
 function deleteVerb(ele) {
     var tr = ele.parentNode.parentNode;
     tr.parentNode.removeChild(tr);
 }
-function updateVerb() { }
-
 
 
 document.onload = mount();
