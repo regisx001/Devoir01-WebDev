@@ -48,26 +48,23 @@ var verbs = [
 
 function mount() {
 
+
     for (var i = 0; i < verbs.length; i++) {
 
         td1 = document.createElement('td');
-        td1.setAttribute("width", "10%")
         var texteNode = document.createTextNode(verbs[i][0]);
         td1.appendChild(texteNode);
 
 
         td2 = document.createElement('td');
-        td2.setAttribute("width", "10%")
         var texteNode = document.createTextNode(verbs[i][1]);
         td2.appendChild(texteNode);
 
         td3 = document.createElement('td');
-        td3.setAttribute("width", "15%")
         var texteNode = document.createTextNode(verbs[i][2]);
         td3.appendChild(texteNode);
 
         td4 = document.createElement('td');
-        td4.setAttribute("width", "40%")
         var texteNode = document.createTextNode(verbs[i][3]);
         td4.appendChild(texteNode);
 
@@ -85,12 +82,11 @@ function mount() {
 
         var btndelete = document.createElement("input");
         btndelete.setAttribute("type", "button");
-        btndelete.setAttribute("onclick", "remove(this)");
+        btndelete.setAttribute("onclick", "deleteVerb(this)");
         btndelete.value = "delete";
 
 
         td5 = document.createElement('td');
-        td5.setAttribute("width", "25%")
 
         if (i != 0) {
             td5.appendChild(btnedit);
@@ -98,19 +94,23 @@ function mount() {
             td5.appendChild(btndelete);
         }
 
-        var row = table.insertRow(i);
+        var row = document.createElement("tr");
         row.appendChild(td1);
         row.appendChild(td2);
         row.appendChild(td3);
         row.appendChild(td4);
 
         row.appendChild(td5)
+
+        table.appendChild(row);
     }
 
 }
 
 
 
+
+// Switching Tabs
 var isReversed = false;
 function switchTab() {
     if (!isReversed) {
@@ -123,6 +123,35 @@ function switchTab() {
         isReversed = false;
     }
 }
+
+
+
+
+// Expand panels
+
+isExpaned = false;
+function expand() {
+    var leftSide = document.getElementById("leftBar");
+    var rightSide = document.getElementById("rightBar");
+    if (!isExpaned) {
+        leftSide.style.width = "60%";
+        rightSide.style.width = "40%";
+        isExpaned = true;
+    } else {
+        leftSide.style.width = "98%";
+        rightSide.style.width = "2%";
+        isExpaned = false;
+    }
+
+}
+
+
+
+function deleteVerb(ele) {
+    var tr = ele.parentNode.parentNode;
+    tr.parentNode.removeChild(tr);
+}
+function updateVerb() { }
 
 
 

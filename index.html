@@ -12,7 +12,7 @@
 
 
     <header id="header">
-        <p onclick="switchTab()">
+        <p style="cursor: pointer;" onclick="switchTab()">
             ◀ ▶
         </p>
 
@@ -22,14 +22,19 @@
     </header>
 
     <main id="main" class="container">
-        <section class="left-s">
+        <section id="leftBar" class="left-s">
             <table id="table" border="1">
                 <!-- Content Goes Here -->
             </table>
         </section>
 
-        <aside class="right-s">
+        <aside id="rightBar" class="right-s">
 
+            <div id="expand">
+                <p style="cursor: pointer;" onclick="expand()">
+                    ▶
+                </p>
+            </div>
         </aside>
     </main>
 
