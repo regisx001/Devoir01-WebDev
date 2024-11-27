@@ -1,4 +1,5 @@
 var table = document.getElementById("table")
+var links = document.getElementById("links-list")
 
 var verbs = [
     ["Base form", "Past tense", "Past participle", "Translation"],
@@ -46,6 +47,10 @@ var verbs = [
 ];
 
 
+var previousLetter = "";
+
+var startLetters = [];
+
 function mount() {
 
 
@@ -53,6 +58,7 @@ function mount() {
 
         td1 = document.createElement('td');
         var texteNode = document.createTextNode(verbs[i][0]);
+        td1.setAttribute("id", verbs[i][0])
         td1.appendChild(texteNode);
 
 
@@ -95,6 +101,11 @@ function mount() {
         }
 
         var row = document.createElement("tr");
+        if (previousLetter !== verbs[i][0].substring(0, 1) && i !== 0) {
+            row.setAttribute("id", verbs[i][0].substring(0, 1))
+            previousLetter = verbs[i][0].substring(0, 1);
+            startLetters.push(previousLetter);
+        }
         row.appendChild(td1);
         row.appendChild(td2);
         row.appendChild(td3);
@@ -104,6 +115,14 @@ function mount() {
 
         table.appendChild(row);
     }
+
+    startLetters.forEach((value) => {
+        var li = document.createElement("li")
+        li.innerHTML = `Here is a link to <a onclick="linkClick('${value}')" href="#${value}">verbs that start with the
+                                    letter <span style="color:red;font-weight:900;" > ${value}</span></a>`
+        links.appendChild(li);
+
+    })
 
 }
 
@@ -155,6 +174,39 @@ function updateVerb(ele) { }
 function deleteVerb(ele) {
     var tr = ele.parentNode.parentNode;
     tr.parentNode.removeChild(tr);
+}
+
+
+
+
+
+var oldElement;
+function linkClick(id) {
+    if (!oldElement) {
+
+        var ele = document.getElementById(id)
+        oldElement = ele;
+
+        ele.style.color = "red";
+        ele.style.fontWeight = 900;
+    } else {
+        oldElement.style.color = "black"
+        oldElement.style.fontWeight = 500;
+        var ele = document.getElementById(id)
+        oldElement = ele;
+        ele.style.color = "red";
+        ele.style.fontWeight = 900;
+    }
+
+}
+
+
+
+
+
+function find() {
+    var ele = document.getElementById("find-input");
+    window.location = "#" + ele.value
 }
 
 
