@@ -82,7 +82,7 @@ function mount() {
 
         var btnupdate = document.createElement("input");
         btnupdate.setAttribute("type", "button");
-        btnupdate.setAttribute("onclick", "updateVerb(this)");
+        btnupdate.setAttribute("onclick", `updateVerb(${i})`);
         btnupdate.value = "update";
 
 
@@ -150,8 +150,8 @@ function switchTab() {
 
 isExpaned = false;
 function expand() {
-    var leftSide = document.getElementById("leftBar");
-    var rightSide = document.getElementById("rightBar");
+    var leftSide = document.getElementById("left-panel");
+    var rightSide = document.getElementById("right-panel");
     if (!isExpaned) {
         leftSide.style.width = "60%";
         rightSide.style.width = "40%";
@@ -166,10 +166,17 @@ function expand() {
 
 
 function editVerb(id) {
+    alert("Base Form :  " + verbs[id][0] + "\n Past tense :  " + verbs[id][1] + "\n Past Participle :  " + verbs[id][2] + "\n Translation :  " + verbs[id][3])
 
 }
 
-function updateVerb(ele) { }
+function updateVerb(id) {
+    verbs[id][0] = prompt(`Base Form : `, verbs[id][0]);
+    verbs[id][1] = prompt(`Past tense : `, verbs[id][1]);
+    verbs[id][2] = prompt(`Past Participle : `, verbs[id][2]);
+    verbs[id][3] = prompt(`Translation  : `, verbs[id][3]);
+    // mount();
+}
 
 function deleteVerb(ele) {
     var tr = ele.parentNode.parentNode;
@@ -199,9 +206,6 @@ function linkClick(id) {
     }
 
 }
-
-
-
 
 
 function find() {

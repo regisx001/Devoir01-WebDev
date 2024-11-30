@@ -43,14 +43,14 @@ header p {
     justify-content: center;
 }
 
-.left-s {
+.left-panel {
     margin: 5px;
     border: black solid 5px;
     /* width: 98%; */
     width: 60%;
 }
 
-.right-s {
+.right-panel {
     margin: 5px;
     border: black solid 5px;
     overflow-y: scroll;
