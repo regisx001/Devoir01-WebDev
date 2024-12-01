@@ -1,5 +1,6 @@
 var table = document.getElementById("table")
 var links = document.getElementById("links-list")
+var statistics = document.getElementById("statistics-body")
 
 var verbs = [
     ["Base form", "Past tense", "Past participle", "Translation"],
@@ -51,12 +52,29 @@ var previousLetter = "";
 var startLetters = [];
 
 function generateElements() {
+    var totalVerbs = 0;
+    var verbAverage = 0;
+    var alphabetDistribution = [];
+
 
     table.innerHTML = "";
     links.innerHTML = "";
     startLetters = [];
 
+    for (let i = 65; i <= 90; i++) {
+        alphabetDistribution[String.fromCharCode(i)] = 0;
+    }
+
+
     for (var i = 0; i < verbs.length; i++) {
+        const [baseForm, pastTense, pastParticiple, translation] = verbs[i];
+
+        totalVerbs++;
+        const firstLetter = baseForm[0].toUpperCase();
+        if (alphabetDistribution[firstLetter] !== undefined) {
+            alphabetDistribution[firstLetter]++;
+        }
+
 
         td1 = document.createElement('td');
         var texteNode = document.createTextNode(verbs[i][0]);
@@ -125,6 +143,14 @@ function generateElements() {
         links.appendChild(li);
 
     })
+
+
+    statistics.innerHTML = Math.round((totalVerbs / startLetters.length)) + " Verbs on Average per letter <br>"
+    for (const letter in alphabetDistribution) {
+        statistics.innerHTML += `${letter} ---> ${alphabetDistribution[letter]} <br>`
+    }
+    console.log(alphabetDistribution);
+
 
 }
 
