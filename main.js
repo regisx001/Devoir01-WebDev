@@ -43,7 +43,6 @@ var verbs = [
     ["feel", "felt", "felt", "(se) sentir"],
     ["fight", "fought", "fought", "combattre"],
     ["find", "found", "found", "trouver"],
-    ["...", "...", "...", "..."]
 ];
 
 
@@ -51,8 +50,11 @@ var previousLetter = "";
 
 var startLetters = [];
 
-function mount() {
+function generateElements() {
 
+    table.innerHTML = "";
+    links.innerHTML = "";
+    startLetters = [];
 
     for (var i = 0; i < verbs.length; i++) {
 
@@ -186,7 +188,7 @@ function updateVerb(ele, id) {
     verbs[id][2] = past_participle
     tds[3].innerHTML = translation
     verbs[id][3] = translation
-    console.log(verbs[id]);
+    generateElements();
 }
 
 function deleteVerb(ele) {
@@ -194,6 +196,23 @@ function deleteVerb(ele) {
     tr.parentNode.removeChild(tr);
 }
 
+
+
+function addVerb() {
+    var base_form = prompt(`Base Form : `);
+
+    if (base_form !== "") {
+        var past_tense = prompt(`Past tense : `);
+        var past_participle = prompt(`Past Participle : `);
+        var translation = prompt(`Translation  : `);
+
+        verbs.push([base_form, past_tense, past_participle, translation])
+        verbs.sort()
+        generateElements();
+    } else {
+        alert("Can't add an empty Verb")
+    }
+}
 
 
 
@@ -225,4 +244,4 @@ function find() {
 }
 
 
-document.onload = mount();
+document.onload = generateElements();
