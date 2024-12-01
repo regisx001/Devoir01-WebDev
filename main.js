@@ -82,7 +82,7 @@ function mount() {
 
         var btnupdate = document.createElement("input");
         btnupdate.setAttribute("type", "button");
-        btnupdate.setAttribute("onclick", `updateVerb(${i})`);
+        btnupdate.setAttribute("onclick", `updateVerb(this,${i})`);
         btnupdate.value = "update";
 
 
@@ -170,12 +170,23 @@ function editVerb(id) {
 
 }
 
-function updateVerb(id) {
-    verbs[id][0] = prompt(`Base Form : `, verbs[id][0]);
-    verbs[id][1] = prompt(`Past tense : `, verbs[id][1]);
-    verbs[id][2] = prompt(`Past Participle : `, verbs[id][2]);
-    verbs[id][3] = prompt(`Translation  : `, verbs[id][3]);
-    // mount();
+function updateVerb(ele, id) {
+    var base_form = prompt(`Base Form : `, verbs[id][0]);
+    var past_tense = prompt(`Past tense : `, verbs[id][1]);
+    var past_participle = prompt(`Past Participle : `, verbs[id][2]);
+    var translation = prompt(`Translation  : `, verbs[id][3]);
+    var tr = ele.parentNode.parentNode;
+    var tds = Array.from(tr.childNodes);
+
+    tds[0].innerHTML = base_form
+    verbs[id][0] = base_form
+    tds[1].innerHTML = past_tense
+    verbs[id][1] = past_tense
+    tds[2].innerHTML = past_participle
+    verbs[id][2] = past_participle
+    tds[3].innerHTML = translation
+    verbs[id][3] = translation
+    console.log(verbs[id]);
 }
 
 function deleteVerb(ele) {
